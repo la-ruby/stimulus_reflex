@@ -9,7 +9,7 @@ if StimulusReflex::Installer.application_record_path.exist?
     proceed = if StimulusReflex::Installer.options.key? "updatable"
       StimulusReflex::Installer.options["updatable"]
     else
-      !no?("✨ Include CableReady::Updatable in Active Record model classes? (Y/n)")
+      true || !no?("✨ Include CableReady::Updatable in Active Record model classes? (Y/n)")
     end
 
     unless proceed

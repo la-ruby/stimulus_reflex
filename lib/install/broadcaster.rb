@@ -18,6 +18,7 @@ include_in_controller = needs_broadcaster?(controller_path)
 include_in_job = needs_broadcaster?(job_path)
 include_in_model = needs_broadcaster?(model_path)
 
+
 proceed = [include_in_channel, include_in_controller, include_in_job, include_in_model].reduce(:|)
 
 unless proceed
@@ -30,7 +31,7 @@ end
 proceed = if StimulusReflex::Installer.options.key? "broadcaster"
   StimulusReflex::Installer.options["broadcaster"]
 else
-  !no?("✨ Make CableReady::Broadcaster available to channels, controllers, jobs and models? (Y/n)")
+  true || !no?("✨ Make CableReady::Broadcaster available to channels, controllers, jobs and models? (Y/n)")
 end
 
 unless proceed
