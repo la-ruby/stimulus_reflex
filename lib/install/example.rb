@@ -7,7 +7,7 @@ if !Rails.root.join("app/reflexes/example_reflex.rb").exist?
   proceed = if StimulusReflex::Installer.options.key? "example"
     StimulusReflex::Installer.options["example"]
   else
-    !no?("✨ Generate an example Reflex with a quick demo? You can remove it later with a single command. (Y/n)")
+    true || !no?("✨ Generate an example Reflex with a quick demo? You can remove it later with a single command. (Y/n)")
   end
 else
   say "⏩ app/reflexes/example_reflex.rb already exists."
