@@ -1,6 +1,6 @@
 name: dev-builds
 on:
-  push:
+  workflow_dispatch:
 
 jobs:
   build:
